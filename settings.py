@@ -16,16 +16,9 @@ SESSION_CONFIGS = [
     ),
 
     dict(
-        # この構成の名前を設定します
         name = 'pg3',
-
-        # oTreeのデモ画面で表示される名前を設定します
         display_name = '初めての公共財ゲーム',
-
-        # デモ画面で参加人数を設定しておく必要があります
         num_demo_participants = 3,
-
-        # この構成で使用するアプリケーションを設定します
         app_sequence = ['PublicGoods_trial']
     ),
 
@@ -35,6 +28,7 @@ SESSION_CONFIGS = [
         num_demo_participants = 2,
         app_sequence = ['dictator_trial']
     )
+    
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
