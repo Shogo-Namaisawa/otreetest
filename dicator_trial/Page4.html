@@ -1,9 +1,16 @@
 {{ block title }}
-    結果
+    結果の確認
 {{ endblock }}
 
 {{ block content }}
+<p>
+    プレイヤー1に対して初期保有額として<b>{{C.ENDOWMENT}}</b>が渡されました。<br>
+    プレイヤー1はプレイヤー2に対して<b>{{group.proposal}}</b>を渡すこととしました。<br>
+</p>
 
+<p>
+    その結果、あなたは<b>{{group.proposal}}</b>を獲得しました。
+</p>
     {{ next_button }}
 {{ endblock }}
 
