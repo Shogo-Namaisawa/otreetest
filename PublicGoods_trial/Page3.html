@@ -1,0 +1,28 @@
+{{ block title }}
+    結果の確認
+{{ endblock }}
+
+{{ block content }}
+<p>
+    あなたの初期保有額として、<B>{{C.ENDOWMENT}}</B>を持っていました。<br>
+    その中から<B>{{player.contribution}}</B>を貢献しました。<br>
+    あなたのグループでは全員で<B>{{group.total_contribution}}</B>を貢献していました。<br>
+    この<B>{{group.total_contribution}}</B>を{{C.MULTIPLAYER}}倍したものを{{C.PLAYERS_PER_GROUP}}で割ったポイントが各自に返されます。<br>
+    その結果、<B>{{group.individual_share}}</B>が渡されました。<br>
+</p>
+
+<p>
+    <B>初期保有額 - あなたの貢献額 + 全員に分配される額 = 現在あなたが保有している額</B>
+</p>
+<p>
+    <B>{{C.ENDOWMENT}}-{{player.contribution}}+{{group.individual_share}}={{player.payoff}}</B>
+</p>
+<p>
+    したがって、あなたの獲得ポイントは<B>{{player.payoff}}</B>です。
+</p>
+
+
+    {{ next_button }}
+{{ endblock }}
+
+
