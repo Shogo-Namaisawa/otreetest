@@ -11,6 +11,7 @@ class C(BaseConstants):
     PLAYERS_PER_GROUP = 2   #２人でやる
     NUM_ROUNDS = 1  #１ラウンド
     ENDOWMENT = cu(10)  #初期保有額10
+    
 
 
 class Subsession(BaseSubsession):
@@ -18,14 +19,21 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    proposal = models.CurrencyField(
-        choices = currency_range(cu(0), C.ENDOWMENT, cu(1)),
-        label = 'Player2にいくら渡しますか',
-    )   #Player1は分配額を決定する
+    # フィールド選択方式
+    #proposal = models.CurrencyField(
+        #choices = currency_range(cu(0), C.ENDOWMENT, cu(1)),
+        #label = 'Player2にいくら渡しますか',
+
+    # ラジオボタン形式
+    proposal = models.IntegerField(
+    choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    widget=widgets.RadioSelect
+)
 
 
 class Player(BasePlayer):
     pass
+    
 
 def compute(group: Group):
     #Player情報の取得
@@ -44,6 +52,7 @@ class Page1(Page):
 class Page2(Page):
     form_model = 'group'
     form_fields = ['proposal']
+    
     
     @staticmethod
     def is_displayed(player: Player):
