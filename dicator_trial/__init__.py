@@ -38,16 +38,24 @@ def compute(group: Group):
     p2.payoff = group.proposal
 
 # PAGES
-class MyPage(Page):
+class Page1(Page):
+    pass
+
+class Page2(Page):
+    form_model = 'group'
+    form_fields = ['proposal']
+    
+    @staticmethod
+    def is_displayed(player: Player):
+        # プレイヤー1にのみ分配額を入力する画面を表示する。
+        return player.id_in_gruop == 1
+        
+
+class Page3(WaitPage):
+    after_all_players_arrive = compute
+
+class Page4(Page):
     pass
 
 
-class ResultsWaitPage(WaitPage):
-    pass
-
-
-class Results(Page):
-    pass
-
-
-page_sequence = [MyPage, ResultsWaitPage, Results]
+page_sequence = [Page1, Page2, Page3, Page4]
