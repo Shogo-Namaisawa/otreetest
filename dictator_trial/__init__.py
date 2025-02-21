@@ -48,7 +48,7 @@ class Page2(Page):
     @staticmethod
     def is_displayed(player: Player):
         # プレイヤー1にのみ分配額を入力する画面を表示する。
-        return player.id_in_gruop == 1
+        return player.id_in_group == 1
         
 
 class Page3(WaitPage):

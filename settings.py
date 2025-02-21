@@ -27,6 +27,13 @@ SESSION_CONFIGS = [
 
         # この構成で使用するアプリケーションを設定します
         app_sequence = ['PublicGoods_trial']
+    ),
+
+    dict(
+        name = 'DG',
+        display_name = '初めての独裁者ゲーム',
+        num_demo_participants = 2,
+        app_sequence = ['dictator_trial']
     )
 ]
 
